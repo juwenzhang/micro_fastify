@@ -1,0 +1,9 @@
+{
+  "imports": {
+    "./config": "./src/config.ts",
+    "./db": "./src/db.ts",
+    "./redis": "./src/redis.ts",
+    "./consul": "./src/consul.ts",
+    "./routes/user.route": "./src/routes/user.route.ts"
+  }
+}
