@@ -21,6 +21,20 @@ export const registerService = async () => {
     })
 }
 
+// export const registerService2 = async (name: string, host: string, port: number) => {
+//     await (consul.agent.service as any).register({
+//         name,
+//         address: host,
+//         port,
+//         check: {
+//             http: `http://${host}:${port}/health`,
+//             interval: '10s',
+//             timeout: '5s',
+//             deregisterCriticalServiceAfter: '60s',
+//         },
+//     })
+// }
+
 // 发现服务
 export const discoverService = async (serviceName: string): Promise<string> => {
     const services = await consul.catalog.service.nodes(serviceName)
