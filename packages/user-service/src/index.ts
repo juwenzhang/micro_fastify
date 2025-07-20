@@ -2,7 +2,7 @@ import fastify from 'fastify';
 import { config } from './config.ts';
 import { initMysql } from './db.ts';
 import { initRedis } from './redis.ts';
-import { registerService } from './consul.ts';
+import { registerService, /*registerService2*/ } from './consul.ts';
 import { userRoutes } from './routes/user.route.ts';
 
 const start = async () => {
@@ -12,6 +12,7 @@ const start = async () => {
   await initMysql(app);
   await initRedis(app);
   await registerService();
+  // await registerService2('user-service1', 'localhost', 3002);
 
   // 注册路由
   app.register(userRoutes, { prefix: '/api' });

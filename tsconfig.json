@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "es2024",
+        "useDefineForClassFields": true,
+        "lib": ["es2024"],
+        "moduleResolution": "NodeNext",
+        "module": "NodeNext",
+        "isolatedModules": true,
+        "noEmit": true,
+        "composite": true,
+        "outDir": "./dist",
+        "types": ["node"],
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "baseUrl": ".",
+        "paths": {
+            "*": ["scripts/*"]
+        }
+    }
+}
