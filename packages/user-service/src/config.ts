@@ -1,12 +1,7 @@
 import dotenv from 'dotenv';
-import path from 'path';
-import URL from 'url';
 import { type Config } from './types/index.ts';
 
-const __filename = URL.fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const envPath = path.resolve(__dirname, '.env');
-dotenv.config({ path: envPath });
+dotenv.config();
 
 export const config: Partial<Config> = {
     service: {
@@ -15,7 +10,7 @@ export const config: Partial<Config> = {
         port: process.env.PORT || 3001,
     },
     mysql: {
-        host: process.env.MYSQL_HOST || 'localhost',
+        host: process.env.MYSQL_HOST || 'mysql',
         port: Number(process.env.MYSQL_PORT) || 3306,
         user: process.env.MYSQL_USER || 'root',
         password: process.env.MYSQL_PASSWORD || '451674jh',

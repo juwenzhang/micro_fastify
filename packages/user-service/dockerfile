@@ -1,0 +1,27 @@
+# 使用 Node.js 基础镜像
+FROM node:20-alpine
+
+# 设置工作目录
+WORKDIR /user-service
+
+COPY package.json ./
+
+RUN npm install -g pnpm
+
+# if you do not use monorepo, you would exec pnpm install --frozen-lockfile
+RUN pnpm install 
+
+COPY . .
+
+RUN pnpm build || true
+
+RUN node fix-imports.js || true
+
+# 安装netcat用于检查MySQL服务
+RUN apk add --no-cache netcat-openbsd
+
+# 暴露端口
+EXPOSE 3001
+
+# 启动服务，等待MySQL和Consul就绪后再启动应用
+CMD ["sh", "-c", "printenv && while ! nc -z mysql 3306; do sleep 1; done && while ! nc -z consul 8500; do sleep 1; done && pnpm start"]

@@ -1,5 +1,6 @@
 ### English Document
 * docker-compose up -d
+* docker-compose build --no-cache
 ```yaml
 version: '3'
 services:

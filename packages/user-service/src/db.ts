@@ -1,14 +1,15 @@
-import fastify from 'fastify'
+import { type FastifyInstance } from 'fastify'
 import fastifyMysql from '@fastify/mysql';
 import { createConnection } from 'mysql2/promise';
 import { getMysqlConfig } from './cache.ts'
 import execSqlState from './constants.ts'
 
-export const initMysql = async (app: fastify.FastifyInstance) => {
+export const initMysql = async (app: FastifyInstance) => {
     const mysqlConfig = getMysqlConfig();
     if (!mysqlConfig) {
-    throw new Error('MySQL配置获取失败');
+        throw new Error('MySQL配置获取失败');
     }
+    // console.log(mysqlConfig)
     try {
         const tempConnection = await createConnection({
             host: mysqlConfig.host,
