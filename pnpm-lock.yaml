@@ -65,9 +65,6 @@ importers:
       mysql2:
         specifier: ^3.14.2
         version: 3.14.2
-      shared-types:
-        specifier: workspace:*
-        version: link:../shared-types
       uuid:
         specifier: ^11.1.0
         version: 11.1.0
@@ -75,9 +72,6 @@ importers:
       '@types/bcrypt':
         specifier: ^6.0.0
         version: 6.0.0
-      '@types/consul':
-        specifier: ^2.0.0
-        version: 2.0.0
       '@types/node':
         specifier: ^24.0.15
         version: 24.0.15
@@ -232,10 +226,6 @@ packages:
 
   '@types/bcrypt@6.0.0':
     resolution: {integrity: sha512-/oJGukuH3D2+D+3H4JWLaAsJ/ji86dhRidzZ/Od7H/i8g+aCmvkeCc6Ni/f9uxGLSQVCRZkX2/lqEFG2BvWtlQ==}
-
-  '@types/consul@2.0.0':
-    resolution: {integrity: sha512-IyvUaJNOrU+X/Zh46/zwwUPHOEULuC4zod8KNUDElBqN8d9XwtPdyvEeHBZ/HPmkWN9EqR4KbfnzQuRLlWt9+Q==}
-    deprecated: This is a stub types definition. consul provides its own type definitions, so you do not need this installed.
 
   '@types/conventional-commits-parser@5.0.1':
     resolution: {integrity: sha512-7uz5EHdzz2TqoMfV7ee61Egf5y6NkcO4FB/1iCCQnbeiI1F3xzv3vK5dBCXUCLQgGYS+mUeigK1iKQzvED+QnQ==}
@@ -1727,10 +1717,6 @@ snapshots:
   '@types/bcrypt@6.0.0':
     dependencies:
       '@types/node': 24.0.15
-
-  '@types/consul@2.0.0':
-    dependencies:
-      consul: 2.0.1
 
   '@types/conventional-commits-parser@5.0.1':
     dependencies:

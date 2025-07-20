@@ -2,7 +2,7 @@ import fastify from 'fastify';
 import { config } from './config.ts';
 import { initMysql } from './db.ts';
 import { initRedis } from './redis.ts';
-import { registerService, /*registerService2*/ } from './consul.ts';
+import { registerService, /*registerService2*/ } from './_consul.ts';
 import { userRoutes } from './routes/user.route.ts';
 
 const start = async () => {

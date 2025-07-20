@@ -16,6 +16,9 @@
         "forceConsistentCasingInFileNames": true,
         "allowImportingTsExtensions": true,
         "resolveJsonModule": true,
+        "resolvePackageJsonExports": true,
+        "resolvePackageJsonImports": true,
+        "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
         "paths": {
             "*": ["scripts/*"]

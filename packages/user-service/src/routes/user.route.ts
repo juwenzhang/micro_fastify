@@ -1,10 +1,10 @@
-import fastify from 'fastify'
+import { type FastifyInstance } from 'fastify'
 import { type User } from "../types/index.ts"
-import { v4 as uuid4 } from "uuid";
+// import { v4 as uuid4 } from "uuid";
 import execSqlState from "../constants.ts";
 import { PasswordUtils } from "../utils/password-bcrypt.ts";
 
-export const userRoutes = async (app: fastify.FastifyInstance) => {
+export const userRoutes = async (app: FastifyInstance) => {
     // 系统健康检查服务
     const getSystemHealth = () => {
         const memoryUsage = process.memoryUsage();

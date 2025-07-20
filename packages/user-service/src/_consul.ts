@@ -11,7 +11,7 @@ export const registerService = async () => {
     await (consul.agent.service as any).register({
         name: getServiceConfig()?.name || 'user-service',
         address: getServiceConfig()?.host || 'localhost',
-        port: getServiceConfig()?.port || 3000,
+        port: Number(getServiceConfig()?.port) || 3000,
         check: {
             http: `http://${getServiceConfig()?.host || 'localhost'}:${getServiceConfig()?.port || 3000}/health`,
             interval: '10s',

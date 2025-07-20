@@ -1,8 +1,8 @@
-import fastify from "fastify";
+import { type FastifyInstance } from "fastify";
 import fastifyRedis from '@fastify/redis';
 import { getRedisConfig } from './cache.ts'
 
-export const initRedis = async (app: fastify.FastifyInstance) => {
+export const initRedis = async (app: FastifyInstance) => {
     await app.register(fastifyRedis, {
         host: getRedisConfig()?.host,
         port: getRedisConfig()?.port,

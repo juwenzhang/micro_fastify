@@ -4,14 +4,46 @@ services:
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: 451674jh
-      MYSQL_DATABASE: microservice_db
+      MYSQL_DATABASE: user_service
     ports:
       - "3306:3306"
+    networks:
+      - app-network
   redis:
     image: redis:alpine
     ports:
       - "6379:6379"
+    networks:
+      - app-network
   consul:
     image: consul:1.15
     ports:
       - "8500:8500"
+    networks:
+      - app-network
+  user-service:
+    build:
+      context: ./packages/user-service
+      dockerfile: ./dockerfile
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mysql
+      - redis
+      - consul
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_DATABASE=user_service
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=451674jh
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - CONSUL_HOST=consul
+      - CONSUL_PORT=8500
+      - PORT=3001
+      - NODE_ENV=production
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
